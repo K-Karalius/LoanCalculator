@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.loanCalculator.Controller">
+   <children>
+      <TextField fx:id="loanSum" layoutX="16.0" layoutY="33.0" prefHeight="40.0" prefWidth="174.0" promptText="loan amount" />
+      <CheckBox fx:id="checkBox" layoutX="18.0" layoutY="171.0" mnemonicParsing="false" onAction="#onActionCheckBox" text="Loan deferment" />
+      <ComboBox fx:id="loanYears" layoutX="204.0" layoutY="37.0" prefHeight="33.0" prefWidth="89.0" promptText="years" />
+      <Label layoutX="204.0" layoutY="18.0" prefHeight="17.0" prefWidth="111.0" text="Loan term">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="loanMonths" layoutX="296.0" layoutY="37.0" prefHeight="33.0" prefWidth="89.0" promptText="months" />
+      <Label layoutX="206.0" layoutY="94.0" prefHeight="20.0" prefWidth="174.0" text="Type of loan">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="loanType" layoutX="204.0" layoutY="113.0" prefHeight="33.0" prefWidth="129.0" promptText="Choose" />
+      <TableView fx:id="table" layoutX="417.0" layoutY="27.0" prefHeight="225.0" prefWidth="414.0" AnchorPane.rightAnchor="289.0">
+        <columns>
+            <TableColumn fx:id="columnMonth" prefWidth="75.0" sortable="false" text="Month" />
+          <TableColumn fx:id="rawColumn" prefWidth="87.0" sortable="false" text="Principal" />
+            <TableColumn fx:id="interestColumn" prefWidth="88.0" sortable="false" text="Interest" />
+            <TableColumn fx:id="wholeColumn" sortable="false" text="Payment" />
+            <TableColumn fx:id="payLeftColumn" prefWidth="87.0" sortable="false" text="Left unpaid" />
+        </columns>
+      </TableView>
+      <Button layoutX="134.0" layoutY="241.0" mnemonicParsing="false" onAction="#submit" text="Submit">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="reportButton" layoutX="910.0" layoutY="29.0" mnemonicParsing="false" onAction="#exportToFile" prefHeight="49.0" prefWidth="111.0" text="Save table &#10;contents to file" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="134.0" layoutY="121.0" prefHeight="20.0" prefWidth="22.0" text="\% ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="loanInterest" layoutX="16.0" layoutY="118.0" prefHeight="25.0" prefWidth="111.0" promptText="interest" />
+      <Label layoutX="16.0" layoutY="141.0" prefHeight="11.0" prefWidth="40.0" text="(0-100]" textFill="#b5adad">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="70.0" prefHeight="16.0" prefWidth="129.0" text="from 50000 to 1000000$" textFill="#b5adad">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <LineChart fx:id="chart" animated="false" axisSortingPolicy="NONE" createSymbols="false" horizontalGridLinesVisible="false" layoutY="271.0" legendVisible="false" prefHeight="366.0" prefWidth="1120.0" title="Annuity and linear loan type repayment comparison" verticalGridLinesVisible="false">
+        <xAxis>
+          <CategoryAxis animated="false" endMargin="0.0" label="Month" prefHeight="54.0" prefWidth="990.0" side="BOTTOM" startMargin="0.0" tickLabelGap="0.0" tickLength="4.0" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis animated="false" label="Payment" prefHeight="258.0" prefWidth="70.0" side="LEFT" upperBound="0.0" />
+        </yAxis>
+      </LineChart>
+      <Button fx:id="filterButton" layoutX="937.0" layoutY="216.0" mnemonicParsing="false" onAction="#filter" text="Filter" />
+      <Label fx:id="filterLabel" layoutX="921.0" layoutY="139.0" text="Table filter">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fromFilter" layoutX="902.0" layoutY="171.0" prefHeight="20.0" prefWidth="57.0" promptText="from" />
+      <TextField fx:id="toFilter" layoutX="972.0" layoutY="171.0" prefHeight="20.0" prefWidth="57.0" promptText="until" />
+      <Label fx:id="filterRangeDisplay" layoutX="902.0" layoutY="196.0" prefHeight="16.0" prefWidth="129.0" text="...-..." textFill="#b5adad">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <TextField fx:id="postponementFrom" layoutX="16.0" layoutY="199.0" prefHeight="26.0" prefWidth="99.0" promptText="starting month" />
+      <TextField fx:id="postponementDuration" layoutX="127.0" layoutY="199.0" prefHeight="26.0" prefWidth="111.0" promptText="deferment period" />
+      <TextField fx:id="postponementPerc" layoutX="243.0" layoutY="199.0" prefHeight="26.0" prefWidth="120.0" promptText="deferment interest" />
+   </children>
+</AnchorPane>
