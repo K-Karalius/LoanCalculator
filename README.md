@@ -1,5 +1,5 @@
 # LoanCalculator
-The loan calculator program can calculate both annuity and linear type loans.
+The loan calculator program that can calculate both annuity and linear type loans.
 
 Type in your desired loan amount, loan term, interest rate and choose the type of loan. 
 Also, you can add a loan deferment period where you will have to enter the starting month, 
