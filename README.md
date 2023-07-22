@@ -1,7 +1,7 @@
 # About
 The loan calculator program that can calculate both annuity and linear type loans.
 
-![image](images/loanCal2.png)
+![image](images/loancal2.png)
 
 ## Features
 * linear and annuity loans
