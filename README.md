@@ -22,7 +22,7 @@ The loan calculator program that can calculate both annuity and linear type loan
 
 * [download and install java JDK version 17 and set JAVA_HOME](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
 * clone or download the repo
-* `cd ../project_directory` loacate to project directory
+* `cd ../project_directory` locate to project directory
 
 #### For just running the project:
 
